@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import shutil
-import psutil
+import psutil #linux command
 
 def check_disk_usage(disk):
 	du=shutil.disk_usage(disk)

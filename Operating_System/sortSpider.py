@@ -1,0 +1,5 @@
+file=open("spider.txt")
+line=file.readlines()
+file.close()
+line.sort()
+print(line)
