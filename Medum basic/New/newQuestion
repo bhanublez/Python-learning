@@ -1,0 +1,14 @@
+17) Write a program to find the sum of all the element of list.
+Test Case: input = [1, 2, 3, 4, 5] output=15
+18) Write a program which take list of integer as a input and create a new
+List which contain the square of each element
+19) Write a program to create a list of element which does not contain the
+Duplicate element of Input list.
+Test Case: input = [1, 2, 1,1,1,1,2,2,,3, 4, 5] output=[1,2,3,4,5]
+20) Write a program to perform linear search on given list of element.
+21) Write a program to sort the element of list in ascending order using selection sort method.
+22) Given a list of numbers, return a list where all adjacent equal elements have been reduced to a single element, so [1, 2, 2, 3] returns [1, 2, 3]. You may create a new list or modify the passed in list.
+23) Given two lists sorted in increasing order, create and return a merged list of all the elements in sorted order
+24) Write a program which can generate and print a tuple, where the values are the squares of number between 1 and 20 (both included)
+25) Write a program to compare two tuple whether they contain same element or not
+26) Write a program to find out the Cartesian product of two set and also verify that number of elements in product set is equal to the number of element in set1 multiplied by number of element in set two
