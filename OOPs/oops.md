@@ -55,4 +55,84 @@ Here value of varaible vary from variable to variable.
 For Every object a seprate copy of instance variable is created.
     a. Inside constructor using self 
     b. Inside instance method using self
-    c. Outside instance methods
+    c. Outside instance methods (By using object refference)
+
+```python
+class Test:
+    def __init__(self):
+        #inside constructor
+        self.a=10
+    def m(self):
+        #insie instance method
+        self.b=20
+
+t=Test()
+print(t)
+#We have special magic variable
+print(t.__dict__)
+
+t.m()
+print(t.__dict__)
+
+#i am declaring the varaible outside the class
+t.c=20
+print(t.__dict__)
+
+t1=Test()
+t1.m()
+print(t1.__dict__)
+
+#In the pythen store the refence of the objext in dictonary in meta data
+```
+## How to access instance varaible
+
+1. Outside class using reference variable
+2. inside class using self
+
+## Staic Variable
+1. Declaration os static method
+    1. Inside class but outside all method
+    2. Inside constructor by using classname
+    3. inside instance method using classname
+    4. inside static method using classname
+    5 inside class method using class name
+```python
+class Test:
+    x=10
+t=Test()
+print(t.__dict__)
+print(Test.__dict__)
+Test.x=50
+t.x=1000
+print(Test.__dict__)
+print(t.x)
+print(t.__dict__)
+````
+2. How to access staic variable
+    a. Inside constructor: by using either self or classname
+    b. Inside instance method: by using either self or classname
+    c. inside class method: by using either class variable or classname
+    d. inside static method: by using class name
+    e. from outside of class: by using either object reference or classname
+```python
+
+print("Accessing static method")
+class Test:
+    x=10
+    #inside constructor
+    def __init__(self):
+        print(self.x)#Accesing using self 
+        print(Test.x)#using class name
+
+    #inside instance method
+    def check(self):
+        print(self.x)#Accesing using self 
+        print(Test.x)#using class name
+
+t=Test()
+t.check()
+
+```
+
+
+
