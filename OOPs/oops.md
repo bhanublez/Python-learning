@@ -109,6 +109,7 @@ print(t.x)
 print(t.__dict__)
 ````
 2. How to access staic variable
+   
     a. Inside constructor: by using either self or classname
     b. Inside instance method: by using either self or classname
     c. inside class method: by using either class variable or classname
@@ -132,6 +133,186 @@ class Test:
 t=Test()
 t.check()
 
+```
+## Local Variable
+
+⚽ Sometimes to meet temporary requirements of programmer,we can declare variables inside a method directly,
+such type of variables are called local variable or temporary variables. 
+
+⚽ Local variables will be created at the time of method execution and destroyed once method completes.
+
+⚽ Local variables of a method cannot be accessed from outside of method.
+
+```python
+class Test:
+    def m1(self):
+        a=1000
+        print(a)
+    def m2(self):
+        b=2000
+        print(a)
+        print(b)
+
+```
+### Types of Method
+
+    1. Instance Method
+        The method we use inside instance variable is known as intance method.
+        Inside Instance method decleration i have to pass the self argument.
+        By using self variable inside method we can access instance variable.
+        To call these method inside we self variable and outside using object reference.
+
+```python
+class Student:
+    def __init__(self,name,marks):
+        self.name=name
+        self.marks=marks
+    def s_add(self,add):
+        self.add=add
+        return(self.add)
+    def display(self):
+        print("name",self.name)
+        print("marks",self.marks)
+        print("address of studnet",self.s_add("durga nagar"))
+s=Student("bhanu",100)
+s.display()
+```
+    2. class Method
+    
+Inside method implementation if we are using only class variables (static variables), 
+then such type of methods we should declare as class method.
+
+⚽ We can declare class method explicitly by using @classmethod decorator.
+
+⚽ For class method we should provide cls variable at the time of declaration 
+
+⚽ We can call classmethod by using classname or object reference variable.
+    
+    
+```python
+#Program to track the Number of Objects created for a Class:
+class CheckKaro:
+    count=0
+    def __init__(self):
+        CheckKaro.count+=1
+    def diplay(self):
+        print(self.count)
+ch1 =CheckKaro()
+ch1.diplay()
+ch2=CheckKaro()
+ch2.diplay()
+ch3=CheckKaro()
+print("Total number of objects:",CheckKaro.count)
+```
+    
+    3. Static Method
+
+⚽ In general these methods are general utility methods.
+
+⚽ Inside these methods we won't use any instance or class variables. 
+
+⚽ Here we won't provide self or cls arguments at the time of declaration.
+
+⚽ We can declare static method explicitly by using @staticmethod decorator 
+
+⚽ We can access static methods by using classname or object reference
+
+```python
+class checku:
+    p=10
+    q=20
+    def __init__(self,x,y):
+        self.x=x
+        self.y=y
+        print(self.p+self.q)
+    @staticmethod
+    def add(x,y):
+        print("Accesing class value in staic method",checku.q)
+        print("The sum is ",x+y)
+    def mul(x,y):
+        print("The Mul is ",x*y)
+
+ch=checku(5,6)
+ch.add(5,8)
+ch.mul(4,1)
+```
+
+### Garbage Collection
+
+```python
+import gc
+print(gc.isenabled())
+gc.disabled()
+print(gc.isenabled())
+```
+
+### destructor
+
+```python
+import time
+class Test:
+    def __init__(self):
+        print("Object created")
+    def __del__(seld):
+        print("Your last wish")
+t1=Test()
+```
+
+# Phase -II
+
+Using one class member inside another class
+
+```python
+# composition
+import time
+class Engine:
+    etype="four stroke"
+    def __init__(self):
+        self.company="tata"
+    def __del__(self):
+        print("releasing all engine resources")
+    def detail(self):
+        print("engine functionality")
+class Car:
+    def __init__(self):
+        self.engine=Engine()
+    def __del__(self):
+        print("releasing all car resources")
+        time.sleep(3)
+    def car_detail(self):
+        self.engine.detail()
+        print(self.engine.etype)
+        
+c=Car()
+c.car_detail()
+del c
+```
+
+```python
+# aggregation
+class Car:
+    def __init__(self,name,color):
+        self.name=name
+        self.color=color
+    def __del__(self):
+        print("car is releasing resources")
+    def car_info(self):
+        print(self.name,self.color)
+class Emp:
+    def __init__(self,name,add,car):
+        self.name=name
+        self.add=add
+        self.car=car
+    def __del__(self):
+        print("emp release")
+    def emp_car_info(self):
+        self.car.car_info()
+        
+c=Car("TUV","black")
+emp=Emp("rahul","vidisha",c)
+emp.emp_car_info()
+del emp
+c.car_info()
 ```
 
 
