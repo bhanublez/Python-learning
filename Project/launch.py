@@ -51,7 +51,7 @@ def modify_books():
             for row in rows:
                 if len(row) > 0 and int(row[0]) == book_id:
                     book_name = input("Enter book name: ")
-                    author = input("Enter author name: ")
+                    author = input("Enter author name: ") 
                     book_type = input("Enter book type: ")
                     row[1] = book_name
                     row[2] = author
