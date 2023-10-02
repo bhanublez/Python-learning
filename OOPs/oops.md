@@ -110,7 +110,6 @@ print(t.__dict__)
 ````
 
 2. How to access staic variable
-
     a. Inside constructor: by using either self or classname
     b. Inside instance method: by using either self or classname
     c. inside class method: by using either class variable or classname
@@ -136,15 +135,5 @@ t=Test()
 t.check()
 ```
 
-## Data Types
 
-```python
-int
-float
-bool
-str
-list
-tuple
-set
-dict
-```
+
