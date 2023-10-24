@@ -135,5 +135,66 @@ t=Test()
 t.check()
 ```
 
+## Is a relationship (inheritance)
+```python
+class p:
+    a=10
+    def __init__(self):
+        self.b=20
+    @classmethod
+    def m1(self):
+        print('parent instance method')
+    @classmethod
+    def m2(cls):
+        print('Parent class method')
+    @staticmethod
+    def m3():
+        print('Parent static method')
+class C(p):
+    pass
+c=C()
+print(c.a)
+print(c.b)
+c.m1()
+c.m2()
+c.m3()
+
+```
+
+```python
+class P:
+    def __init__(self) -> None:
+        print("P")
+        print(id(self))
+        self.b=10#By default there in not any private funtion and variable
+class C(P):
+    # pass
+    def __init__(self) -> None:
+        super().__init__()
+        print("c")
+c=C()
+print(id(c))
+# print(c.b)
+
+# class B:
+#     def __init__(self) -> None:
+#         super().__init__()
+#         print("Construnctor called")
+
+# b=B()
+
+```
+## Types of Inheritance
+1. Single Inheritance
+2. Multi level Inheritance
+3. Multiple Inheritance
+4. Hierarchical Inheritance
+5. Hybrid Inheritance
+6. Multiple Inheritance
+
+
+
+
+
 
 
